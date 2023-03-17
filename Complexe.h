@@ -10,23 +10,31 @@
 class Complexe {
 public:
     Complexe(double, double);
-    Complexe(std::string);
+    explicit Complexe(const std::string&);
 
-    std::string toString();
+    std::string toString() const;
+
+    Complexe getConjugue() const;
+    double getModule();
+
+    Complexe& operator +=(Complexe&);
+    Complexe& operator -=(Complexe&);
+    Complexe& operator /=(const Complexe&);
+    Complexe& operator *=(const Complexe&);
 
     Complexe operator +(Complexe&) const;
     Complexe operator -(Complexe&) const;
     Complexe operator /(Complexe&) const;
     Complexe operator *(Complexe&) const;
 
-    Complexe& operator +=(Complexe&);
-    Complexe& operator -=(Complexe&);
-    Complexe& operator /=(Complexe&);
-    Complexe& operator *=(Complexe&);
+    double getReel() const;
+    void setReel(const double&);
+    double getImaginaire() const;
+    void setImaginaire(const double&);
 
 private:
-    double reel;
-    double imaginaire;
+    double m_dReel;
+    double m_dImaginaire;
 };
 
 
